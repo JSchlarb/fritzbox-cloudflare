@@ -10,7 +10,7 @@ import (
 const urlTpl = "https://api.cloudflare.com/client/v4/zones/%s/dns_records/%s"
 
 func main() {
-	println("Starting ...")
+	println("Started ...")
 
 	http.HandleFunc("/api/dyndns", dynDnsHandler)
 	http.HandleFunc("/_health", healthHandler)
@@ -22,7 +22,7 @@ func main() {
 	}
 }
 
-func healthHandler(w http.ResponseWriter, r *http.Request) {
+func healthHandler(w http.ResponseWriter, _ *http.Request) {
 	w.WriteHeader(204)
 }
 
