@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "fritzbox-cloudflare.fullname" . }}
+  labels:
+    {{- include "fritzbox-cloudflare.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "fritzbox-cloudflare.selectorLabels" . | nindent 4 }}
