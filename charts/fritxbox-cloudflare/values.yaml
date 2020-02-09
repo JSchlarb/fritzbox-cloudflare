@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: julez/fritxbox-cloudflare
   tag: "{{ .Chart.AppVersion }}"
   pullPolicy: IfNotPresent
 
